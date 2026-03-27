@@ -246,11 +246,11 @@ export default function App() {
         const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
 
         return (
-            <div className="bg-white p-4 md:p-5 rounded-2xl border border-slate-100 shadow-sm flex-1">
-                <h5 className="text-lg font-extrabold text-indigo-700 mb-4 text-center border-b border-slate-100 pb-2">{title}</h5>
-                <div className="grid grid-cols-7 gap-1 md:gap-2 text-center">
+            <div className="bg-white p-3 sm:p-5 rounded-2xl border border-slate-100 shadow-sm w-full max-w-sm mx-auto">
+                <h5 className="text-base sm:text-lg font-extrabold text-indigo-700 mb-3 sm:mb-4 text-center border-b border-slate-100 pb-2">{title}</h5>
+                <div className="grid grid-cols-7 gap-1 sm:gap-2 text-center">
                     {['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'].map(d => (
-                        <div key={d} className="font-bold text-slate-400 text-xs md:text-sm pb-2">{d}</div>
+                        <div key={d} className="font-bold text-slate-400 text-[10px] sm:text-xs md:text-sm pb-1 sm:pb-2">{d}</div>
                     ))}
                     {blanks.map(b => <div key={`blank-${b}`} className="aspect-square"></div>)}
                     {days.map(day => {
@@ -261,7 +261,7 @@ export default function App() {
                                 key={dateStr}
                                 onClick={() => toggleBoatDate(dateStr)}
                                 className={`
-                                    aspect-square flex items-center justify-center rounded-xl text-sm md:text-base font-bold transition-all duration-300
+                                    aspect-square flex items-center justify-center rounded-lg sm:rounded-xl text-xs sm:text-sm md:text-base font-bold transition-all duration-300
                                     ${isHighlighted 
                                         ? 'bg-gradient-to-br from-indigo-500 to-blue-600 text-white shadow-md scale-105 ring-2 ring-indigo-200 ring-offset-1' 
                                         : 'bg-slate-50 text-slate-600 border border-slate-100 hover:border-indigo-300'}
@@ -532,20 +532,20 @@ export default function App() {
                     SECTION 2: CHATBOT SECTION
                 -------------------------------------------------------- */}
                 <FadeInSection>
-                    <section id="chatbot" className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-[2rem] shadow-sm p-6 md:p-10 border border-indigo-100 scroll-mt-24">
-                        <div className="flex flex-col md:flex-row gap-10 h-[500px]">
+                    <section id="chatbot" className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-[2rem] shadow-sm p-5 sm:p-8 md:p-10 border border-indigo-100 scroll-mt-24">
+                        <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 lg:h-[550px]">
                             {/* Trái: Tiêu đề & Gợi ý */}
-                            <div className="w-full md:w-1/3 flex flex-col justify-center">
-                                <div className="p-3 bg-indigo-600 text-white rounded-2xl w-max mb-6 shadow-md"><Bot size={32}/></div>
-                                <h2 className="text-3xl font-extrabold text-slate-800 tracking-tight mb-4">Trợ Lý Ảo Phú Quý</h2>
-                                <p className="text-slate-600 text-lg mb-8 leading-relaxed">Bạn có thắc mắc về chuyến đi? Hãy chọn một chủ đề gợi ý hoặc nhập câu hỏi để mình hỗ trợ ngay nhé!</p>
+                            <div className="w-full lg:w-1/3 flex flex-col justify-center">
+                                <div className="p-3 bg-indigo-600 text-white rounded-2xl w-max mb-4 md:mb-6 shadow-md"><Bot size={28}/></div>
+                                <h2 className="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight mb-3 md:mb-4">Trợ Lý Ảo Phú Quý</h2>
+                                <p className="text-slate-600 text-base md:text-lg mb-6 md:mb-8 leading-relaxed">Bạn có thắc mắc về chuyến đi? Hãy chọn một chủ đề gợi ý hoặc nhập câu hỏi để mình hỗ trợ ngay nhé!</p>
                                 
                                 <div className="flex flex-wrap gap-2">
                                     {["Ăn gì ngon ở đảo?", "Gợi ý homestay đẹp", "Di chuyển ra đảo thế nào?"].map((suggestion, index) => (
                                         <button 
                                             key={index}
                                             onClick={() => handleSendChat(suggestion)}
-                                            className="text-sm font-semibold bg-white text-indigo-700 border border-indigo-200 px-4 py-2 rounded-full hover:bg-indigo-600 hover:text-white transition-colors shadow-sm"
+                                            className="text-xs md:text-sm font-semibold bg-white text-indigo-700 border border-indigo-200 px-3 py-2 md:px-4 md:py-2 rounded-full hover:bg-indigo-600 hover:text-white transition-colors shadow-sm"
                                         >
                                             {suggestion}
                                         </button>
@@ -554,9 +554,9 @@ export default function App() {
                             </div>
 
                             {/* Phải: Cửa sổ Chat */}
-                            <div className="w-full md:w-2/3 bg-white rounded-3xl shadow-md border border-slate-100 flex flex-col overflow-hidden h-full">
-                                <div className="bg-indigo-600 p-4 text-white font-bold text-lg flex items-center gap-2 shadow-sm">
-                                    <Sparkles size={20} className="text-indigo-200" /> Chat với chúng tôi
+                            <div className="w-full lg:w-2/3 bg-white rounded-2xl md:rounded-3xl shadow-md border border-slate-100 flex flex-col overflow-hidden h-[450px] lg:h-full mt-2 lg:mt-0">
+                                <div className="bg-indigo-600 p-3 md:p-4 text-white font-bold text-base md:text-lg flex items-center gap-2 shadow-sm">
+                                    <Sparkles size={18} className="text-indigo-200" /> Chat với chúng tôi
                                 </div>
                                 
                                 {/* Messages Area */}
@@ -748,24 +748,23 @@ export default function App() {
                                             <EditableText name="transportBoatDesc" tag="p" className="text-lg text-slate-600 leading-relaxed" />
                                             
                                             {/* Lịch Tàu Chạy (Tháng 4 & Tháng 5) */}
-                                            <div className="mt-8 bg-slate-50/80 p-4 md:p-6 rounded-3xl border border-slate-200 shadow-inner">
-                                                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-3">
+                                            <div className="mt-6 md:mt-8 bg-slate-50/80 p-3 sm:p-4 md:p-6 rounded-2xl md:rounded-3xl border border-slate-200 shadow-inner">
+                                                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 md:mb-6 gap-3">
                                                     <div>
-                                                        <h4 className="text-xl font-extrabold text-slate-800 flex items-center gap-2">
-                                                            <CalendarDays size={22} className="text-indigo-600"/> Lịch Tàu Chạy 2026
+                                                        <h4 className="text-lg md:text-xl font-extrabold text-slate-800 flex items-center gap-2">
+                                                            <CalendarDays size={20} className="text-indigo-600"/> Lịch Tàu Chạy 2026
                                                         </h4>
-                                            
                                                     </div>
-                                                    {isAdmin && <span className="text-xs bg-yellow-100 text-yellow-700 px-3 py-1.5 rounded-lg font-bold animate-pulse">Chế độ sửa: Click ngày để bật/tắt</span>}
+                                                    {isAdmin && <span className="text-[10px] sm:text-xs bg-yellow-100 text-yellow-700 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg font-bold animate-pulse w-fit">Chế độ sửa: Click ngày để bật/tắt</span>}
                                                 </div>
                                                 
                                                 <div className="flex justify-center w-full">
                                                     {renderCalendar(2026, 5, "Tháng 5 / 2026")}
                                                 </div>
                                                 
-                                                <div className="mt-6 flex items-center justify-center gap-3 text-sm font-medium text-slate-600 bg-white py-2.5 px-5 rounded-full border border-slate-200 w-max mx-auto shadow-sm">
-                                                    <span className="w-3.5 h-3.5 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-full inline-block shadow-inner"></span> 
-                                                    Ngày có tàu xuất bến (Superdong, Phú Quý Express, Trưng Trắc)
+                                                <div className="mt-4 md:mt-6 flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs md:text-sm font-medium text-slate-600 bg-white py-2 px-3 md:py-2.5 md:px-5 rounded-xl md:rounded-full border border-slate-200 w-full sm:w-max mx-auto shadow-sm text-center">
+                                                    <span className="w-3 h-3 md:w-3.5 md:h-3.5 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-full inline-block shadow-inner shrink-0"></span> 
+                                                    <span>Ngày có tàu xuất bến <span className="hidden sm:inline">(Superdong, Phú Quý Express, Trưng Trắc)</span></span>
                                                 </div>
                                             </div>
 
